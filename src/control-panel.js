@@ -60,7 +60,7 @@ class UserPrefsStore extends Store {
 const userPrefsStore = new UserPrefsStore(controlPanelDispatcher);
 
 userPrefsStore.addListener((state) => {
-  console.info('The cugetUserPreferencesrrent state is ', state);
+  console.info('The current state is ', state);
   render(state);
   localStorage['preferences'] = JSON.stringify(state);
 });

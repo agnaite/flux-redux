@@ -31,7 +31,7 @@ const completeTaskAction = (id, isComplete) => {
 
 class TasksStore extends ReduceStore {
   getInitialState() {
-    return {
+    return localStorage['tasks'] ? JSON.parse(localStorage['tasks']) : {
       tasks: [{
         id: id(),
         contents: 'get a job',
@@ -117,6 +117,8 @@ tasksDispatcher.dispatch("TEST__DISPATCH");
 
 tasksStore.addListener( () => {
   render();
+  console.log(tasksStore.getState());
+  localStorage['tasks'] = JSON.stringify(tasksStore.getState());
 });
 
 render();
