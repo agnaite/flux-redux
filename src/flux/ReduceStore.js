@@ -11,7 +11,7 @@ export class ReduceStore extends Store {
     const newState = this.reduce(this.__state, action);
     if  (newState !== this.__state) {
       this.__state = newState;
-      this.emitChange();
+      this.__emitChange();
     }
   }
 }
